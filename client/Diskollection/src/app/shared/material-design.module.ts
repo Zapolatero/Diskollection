@@ -7,11 +7,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSelectModule } from '@angular/material/select'
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   exports: [MatCardModule, MatToolbarModule, MatIconModule, MatButtonModule, MatListModule, MatDialogModule, MatFormFieldModule, MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
   ],
 })
 export class MaterialDesignModule {}

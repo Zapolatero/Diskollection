@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AlbumDTO } from '../../models/Album';
+import { ArtistServices } from 'src/app/core/providers/ArtistServices';
+import { ArtistDTO } from '../../models/Artist';
 
 @Component({
   selector: 'app-album-form',
@@ -9,25 +10,32 @@ import { AlbumDTO } from '../../models/Album';
 })
 export class AlbumFormComponent {
   albumForm!: FormGroup
+  artists!: Array<ArtistDTO>;
+  @Output() cancelAction: EventEmitter<void> = new EventEmitter(); 
+  @Output() saveAlbum: EventEmitter<any> = new EventEmitter(); 
 
-  constructor(){
+  constructor(private readonly artistServices: ArtistServices){
     this.albumForm = new FormGroup({
-      id: new FormControl(""),
+      id: new FormControl("0"),
       title: new FormControl("", [Validators.required, Validators.minLength(2)]),
       genre: new FormControl("", [Validators.required, Validators.minLength(2)]),
       releaseDate: new FormControl("", [Validators.required]),
       artistId: new FormControl("", [Validators.required]),
       description: new FormControl(""),
       imageURL: new FormControl("")
+    });
+
+    this.artistServices.getArtists().subscribe(data => {
+      this.artists = data;
     })
   }
 
   onCancel(){
-
+    this.cancelAction.emit();
   }
 
   onSave(){
-    
+    this.saveAlbum.emit(this.albumForm.getRawValue());
   }
 }
 

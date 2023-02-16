@@ -9,13 +9,14 @@
     </mat-form-field>
     <mat-form-field>
         <mat-label>Release date</mat-label>
-        <input name="releaseDate" formControlName="releaseDate" matInput>
+        <input name="releaseDate" formControlName="releaseDate" matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Artist</mat-label>
         <mat-select name="artistId" formControlName="artistId" matInput>    
-            <mat-option value="one">First option</mat-option>
-            <mat-option value="two">Second option</mat-option>
+            <mat-option *ngFor="let artist of artists" [value]="artist.id">{{ artist.name }}</mat-option>
         </mat-select>
     </mat-form-field>
     <mat-form-field>
