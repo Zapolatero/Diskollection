@@ -1,17 +1,15 @@
-
-
 <mat-card>
     <div>
-        <input placeholder="Search by name" matInput class="filterInput" filterInput>
+        <input (input)="onInput()"  [(ngModel)]="search.searchText" placeholder="Search by name" matInput class="filterInput" filterInput>
     </div>
     <div>
-        <mat-select placeholder="Genre" matInput class="filterInput"  >
+        <mat-select (closed)="onInput()" [(ngModel)]="search.genreFilter" placeholder="Genre" matInput class="filterInput"  >
             <mat-option value="" filterInput selected>All genres</mat-option>
             <mat-option *ngFor="let genre of genres" [value]="genre">{{ genre }}</mat-option>
         </mat-select>
     </div>
     <div>
-        <mat-select matInput placeholder="Artist" class="filterInput" >
+        <mat-select (closed)="onInput()" [(ngModel)]="search.artistFilter" matInput placeholder="Artist" class="filterInput" >
             <mat-option value="" >All artists</mat-option>
             <mat-option *ngFor="let artist of artists" [value]="artist" >{{ artist }}</mat-option>
         </mat-select>

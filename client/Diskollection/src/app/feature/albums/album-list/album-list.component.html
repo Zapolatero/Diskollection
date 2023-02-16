@@ -1,8 +1,9 @@
 <section>
-    <app-album-list-filter [artists]="artists" [genres]="genres"></app-album-list-filter>
+    <app-album-list-filter (searchChanged)="filterList($event)" [artists]="artists" [genres]="genres"></app-album-list-filter>
 </section>
 <section>
-    <app-album-card (deleteAlbum)="onDeleteAlbum($event)" (albumLiked)="onAlbumLiked($event, album.id)" [album]="album" *ngFor="let album of albums">
+    <app-album-card (deleteAlbum)="onDeleteAlbum($event)" (albumLiked)="onAlbumLiked($event, album.id)" [album]="album" 
+    *ngFor="let album of displayedAlbums">
         {{album.title}}
     </app-album-card>
 </section>
