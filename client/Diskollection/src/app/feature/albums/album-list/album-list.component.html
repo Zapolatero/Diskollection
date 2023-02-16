@@ -1,5 +1,5 @@
 <section>
-    <ng-container *ngFor="let album of albums">
+    <app-album-card [album]="album" *ngFor="let album of albums">
         {{album.title}}
-    </ng-container>
+    </app-album-card>
 </section>

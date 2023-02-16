@@ -1,0 +1,21 @@
+<mat-card class="album-card">
+    <img mat-card-image [src]="album.imageURL" [alt]="album.title + 'cover image'">
+    <mat-card-content>
+        <p class="album-title">
+            {{album.title}}
+        </p>
+        <p>
+            <a [href]="['artists/' + album.artistId]">{{ album.artistName }}</a>
+        </p>
+        <p>
+            {{album.genre}}
+        </p>
+        <p>
+            Released {{album.releaseDate |date}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>

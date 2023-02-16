@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialDesignModule } from './material-design.module';
+import { AlbumCardComponent } from './components/album-card/album-card.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [AlbumCardComponent],
   imports: [
     CommonModule,
     MaterialDesignModule
   ],
   exports:[
     CommonModule,
-    MaterialDesignModule
+    MaterialDesignModule,
+    AlbumCardComponent
   ]
 })
 export class SharedModule { }
