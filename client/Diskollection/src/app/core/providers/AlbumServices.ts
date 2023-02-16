@@ -14,5 +14,9 @@ export class AlbumServices{
 
     postAlbum(albumForm: AlbumDTO): Observable<void> {
         return this.httpClient.post<void>(`${environment.albumEndpoint}/albums`, albumForm);
-      }
+    }
+
+    deleteAlbum(albumId: string): Observable<void>{
+        return this.httpClient.delete<void>(`${environment.albumEndpoint}/albums/${albumId}`);
+    }
 }

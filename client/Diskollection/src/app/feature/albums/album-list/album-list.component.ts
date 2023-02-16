@@ -16,7 +16,11 @@ export class AlbumListComponent implements OnInit{
   constructor(private readonly albumServices: AlbumServices, private readonly matDialogService: MatDialog){}
   
   ngOnInit(): void {
-    this.albumServices.getAlbums().subscribe(data => this.albums = data)
+    this.refreshAlbumList();
+  }
+
+  refreshAlbumList(){
+    this.albumServices.getAlbums().subscribe(data => this.albums = data);
   }
 
   openDialog(){
@@ -32,5 +36,9 @@ export class AlbumListComponent implements OnInit{
         return this.albums;
       })
     ).subscribe();
+  }
+
+  onDeleteAlbum(albumId: string){
+    this.albumServices.deleteAlbum(albumId).subscribe(() => this.refreshAlbumList());
   }
 }

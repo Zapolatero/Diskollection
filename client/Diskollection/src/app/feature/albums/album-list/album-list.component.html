@@ -1,5 +1,5 @@
 <section>
-    <app-album-card [album]="album" *ngFor="let album of albums">
+    <app-album-card (deleteAlbum)="onDeleteAlbum($event)" [album]="album" *ngFor="let album of albums">
         {{album.title}}
     </app-album-card>
 </section>
