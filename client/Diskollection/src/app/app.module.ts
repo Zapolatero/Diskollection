@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AlbumListComponent } from './feature/albums/album-list/album-list.component';
 import { AlbumListModule } from './feature/albums/album-list/album-list.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AlbumListModule } from './feature/albums/album-list/album-list.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AlbumListModule
+    AlbumListModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

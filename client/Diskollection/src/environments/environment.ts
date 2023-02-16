@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    peopleEndpoint: 'https://localhost:7252/api',
+    albumEndpoint: 'https://localhost:7252/api',
   };
   
   /*
