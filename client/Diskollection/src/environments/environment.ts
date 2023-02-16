@@ -5,6 +5,7 @@
 export const environment = {
     production: false,
     albumEndpoint: 'https://localhost:7252/api',
+    appIconURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Discogs_record_icon.svg/1200px-Discogs_record_icon.svg.png"
   };
   
   /*
