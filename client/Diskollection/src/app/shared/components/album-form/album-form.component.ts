@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ArtistServices } from 'src/app/core/providers/ArtistServices';
+import { Album } from '../../models/Album';
 import { ArtistDTO } from '../../models/Artist';
 
 @Component({
@@ -8,9 +9,10 @@ import { ArtistDTO } from '../../models/Artist';
   templateUrl: './album-form.component.html',
   styleUrls: ['./album-form.component.scss']
 })
-export class AlbumFormComponent {
+export class AlbumFormComponent implements OnChanges{
   albumForm!: FormGroup
   artists!: Array<ArtistDTO>;
+  @Input() album!: Album;
   @Output() cancelAction: EventEmitter<void> = new EventEmitter(); 
   @Output() saveAlbum: EventEmitter<any> = new EventEmitter(); 
 
@@ -28,6 +30,13 @@ export class AlbumFormComponent {
     this.artistServices.getArtists().subscribe(data => {
       this.artists = data;
     })
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const { album } = changes;
+    if (album.currentValue !== album.previousValue) {
+      this.albumForm.patchValue(this.album);
+    }
   }
 
   onCancel(){

@@ -12,6 +12,10 @@ export class AlbumServices{
         return this.httpClient.get<Array<Album>>(`${environment.albumEndpoint}/albums`);
     }
 
+    getAlbumDetails(id: string):Observable<Album> {
+        return this.httpClient.get<Album>(`${environment.albumEndpoint}/albums/${id}`);
+    }
+
     postAlbum(albumForm: AlbumDTO): Observable<void> {
         return this.httpClient.post<void>(`${environment.albumEndpoint}/albums`, albumForm);
     }
@@ -22,5 +26,9 @@ export class AlbumServices{
 
     likeAlbum(isLike: boolean, albumId: string):Observable<void> {
         return this.httpClient.get<void>(`${environment.albumEndpoint}/albums/${albumId}/like/${isLike}`);
+      }
+      
+    putAlbum(album: AlbumDTO):Observable<void> {
+        return this.httpClient.put<void>(`${environment.albumEndpoint}/albums/${album.id}`, album);
       }
 }
