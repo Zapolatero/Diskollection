@@ -23,3 +23,15 @@
     text-decoration: none;
     color: inherit;
   }
+
+  a:hover{
+    filter: brightness(0.8);
+  }
+
+  .album-genre{
+    font-style: italic;
+  }
+
+  .album-released{
+    font-weight: 700 ;
+  }

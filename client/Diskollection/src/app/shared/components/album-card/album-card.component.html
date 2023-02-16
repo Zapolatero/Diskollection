@@ -4,14 +4,14 @@
         <p class="album-title">
             {{album.title}}
         </p>
-        <p>
+        <p class="album-artist">
             <a [href]="['artists/' + album.artistId]">{{ album.artistName }}</a>
         </p>
         <p>
-            {{album.genre}}
+            Released <span class="album-released">{{album.releaseDate |date}}</span>
         </p>
-        <p>
-            Released {{album.releaseDate |date}}
+        <p class="album-genre">
+            {{album.genre}}
         </p>
     </mat-card-content>
     <mat-card-actions>
