@@ -6,10 +6,11 @@ import { AlbumListComponent } from './album-list.component';
 import { AlbumServices } from 'src/app/core/providers/AlbumServices';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AddAlbumDialogComponent } from './components/add-album-dialog/add-album-dialog.component';
+import { AlbumListFilterComponent } from './components/album-list-filter/album-list-filter.component';
 
 
 @NgModule({
-  declarations: [AlbumListComponent, AddAlbumDialogComponent],
+  declarations: [AlbumListComponent, AddAlbumDialogComponent, AlbumListFilterComponent],
   imports: [
     SharedModule,
     AlbumListRoutingModule

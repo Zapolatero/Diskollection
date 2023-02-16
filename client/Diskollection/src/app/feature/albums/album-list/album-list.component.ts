@@ -12,6 +12,8 @@ import { AddAlbumDialogComponent } from './components/add-album-dialog/add-album
 })
 export class AlbumListComponent implements OnInit{
   albums!: Array<Album>;
+  genres!: Set<string>;
+  artists!: Set<string>;
 
   constructor(private readonly albumServices: AlbumServices, private readonly matDialogService: MatDialog){}
   
@@ -20,7 +22,12 @@ export class AlbumListComponent implements OnInit{
   }
 
   refreshAlbumList(){
-    this.albumServices.getAlbums().subscribe(data => this.albums = data);
+    this.albumServices.getAlbums().subscribe(data => {
+        this.albums = data;
+        this.genres = new Set(this.albums.map(a => a.genre));
+        this.artists = new Set(this.albums.map(a => a.artistName));
+      }
+    );
   }
 
   openDialog(){
