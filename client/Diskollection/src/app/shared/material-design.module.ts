@@ -7,8 +7,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSelectModule } from '@angular/material/select'
 
 @NgModule({
-  exports: [MatCardModule, MatToolbarModule, MatIconModule, MatButtonModule, MatListModule, MatDialogModule, MatFormFieldModule, MatInputModule],
+  exports: [MatCardModule, MatToolbarModule, MatIconModule, MatButtonModule, MatListModule, MatDialogModule, MatFormFieldModule, MatInputModule,
+    MatSelectModule
+  ],
 })
 export class MaterialDesignModule {}
