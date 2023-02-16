@@ -24,7 +24,7 @@ export class AlbumListComponent implements OnInit{
   }
 
   openDialog(){
-    this.matDialogService.open(AddAlbumDialogComponent, {width: '30%', height: 'fit-content'})
+    this.matDialogService.open(AddAlbumDialogComponent, {height: 'fit-content'})
     .afterClosed()
     .pipe(
       filter(albumForm => !!albumForm),
@@ -40,5 +40,9 @@ export class AlbumListComponent implements OnInit{
 
   onDeleteAlbum(albumId: string){
     this.albumServices.deleteAlbum(albumId).subscribe(() => this.refreshAlbumList());
+  }
+
+  onAlbumLiked(isLike: boolean, albumId: string) {
+    this.albumServices.likeAlbum(isLike, albumId).subscribe();
   }
 }

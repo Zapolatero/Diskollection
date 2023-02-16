@@ -19,4 +19,8 @@ export class AlbumServices{
     deleteAlbum(albumId: string): Observable<void>{
         return this.httpClient.delete<void>(`${environment.albumEndpoint}/albums/${albumId}`);
     }
+
+    likeAlbum(isLike: boolean, albumId: string):Observable<void> {
+        return this.httpClient.get<void>(`${environment.albumEndpoint}/albums/${albumId}/like/${isLike}`);
+      }
 }
