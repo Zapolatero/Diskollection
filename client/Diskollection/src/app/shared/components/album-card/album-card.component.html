@@ -17,7 +17,7 @@
     <mat-card-actions>
         <button mat-icon-button [style.color]="likeButtonState" (click)="onAlbumLiked()"><mat-icon>album</mat-icon></button>
         <span>{{ album.likes }}</span>
-        <button mat-icon-button color="warn" (click)="onDeleteAlbum()"><mat-icon>delete</mat-icon></button>
         <a mat-icon-button [href]="['albums/' + album.id]" color="primary"><mat-icon>edit</mat-icon></a>
+        <button mat-icon-button color="warn" (click)="onDeleteAlbum()"><mat-icon>delete</mat-icon></button>
     </mat-card-actions>
   </mat-card>
