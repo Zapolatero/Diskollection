@@ -9,11 +9,23 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
-  exports: [MatCardModule, MatToolbarModule, MatIconModule, MatButtonModule, MatListModule, MatDialogModule, MatFormFieldModule, MatInputModule,
+  exports: [
+    MatCardModule, 
+    MatToolbarModule,
+    MatIconModule, 
+    MatButtonModule, 
+    MatListModule, 
+    MatDialogModule, 
+    MatFormFieldModule, 
+    MatInputModule,
     MatSelectModule,
     MatDatepickerModule,
+    MatExpansionModule,
+    MatCheckboxModule
   ],
 })
 export class MaterialDesignModule {}

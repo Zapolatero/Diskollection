@@ -1,0 +1,4 @@
+<ng-container [ngSwitch]="isActive">
+    <span *ngSwitchCase="true">In activity <mat-icon [style.color]="'green'">music_note</mat-icon></span>
+    <span *ngSwitchCase="false">Inactive <mat-icon [style.color]="'red'">music_off</mat-icon></span>
+</ng-container>

@@ -1,0 +1,34 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{ artist.name }}</mat-card-title>
+        <mat-card-subtitle> {{ artist.country }} </mat-card-subtitle>
+        <app-artist-activity [isActive]="artist.isActive"></app-artist-activity>
+        <mat-card-actions class="action-buttons">
+            <a class="edit-button" mat-icon-button><mat-icon>edit</mat-icon></a>
+        </mat-card-actions>
+    </mat-card-header>
+    <mat-card-content>
+        {{ artist.biography }}
+    </mat-card-content>
+</mat-card>
+<div id="artist-albums-list">
+    <mat-accordion>
+        <mat-expansion-panel *ngFor="let album of artist.albums">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <img class="album-icon" width="40px" [src]="album.imageURL" [alt]="album.title + ' cover image'">
+                    {{ album.title }}
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{ album.genre }} - 
+                    {{ album.releaseDate | date }}
+                </mat-panel-description>
+                    <span>
+                        <a class="edit-button" mat-icon-button [href]="['albums/' + album.id]" color="primary"><mat-icon>edit</mat-icon></a>
+                        <button mat-icon-button color="warn" ><mat-icon>delete</mat-icon></button>
+                    </span>
+            </mat-expansion-panel-header>
+            <p>{{ album.description ? album.description : "No description"}}</p>
+      </mat-expansion-panel>
+    </mat-accordion>
+</div>

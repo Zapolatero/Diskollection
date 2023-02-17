@@ -9,6 +9,7 @@ import { AlbumListModule } from './feature/albums/album-list/album-list.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './core/components/header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { ArtistDetailsComponent } from './feature/artists/artist-details/artist-details.component';
  
 @NgModule({
   declarations: [

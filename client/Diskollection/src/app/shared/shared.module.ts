@@ -6,11 +6,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AlbumFormComponent } from './components/album-form/album-form.component';
 import { ArtistServices } from '../core/providers/ArtistServices';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ArtistFormComponent } from './components/artist-form/artist-form.component';
 
 
 
 @NgModule({
-  declarations: [AlbumCardComponent, AlbumFormComponent],
+  declarations: [AlbumCardComponent, AlbumFormComponent, ArtistFormComponent],
   providers: [ArtistServices],
   imports: [
     CommonModule,
@@ -22,7 +23,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     CommonModule,
     MaterialDesignModule,
     AlbumCardComponent,
-    AlbumFormComponent
+    AlbumFormComponent,
+    ArtistFormComponent
   ]
 })
 export class SharedModule { }

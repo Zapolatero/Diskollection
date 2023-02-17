@@ -70,5 +70,7 @@ export class AlbumListComponent implements OnInit{
       && (album.genre == this.searchCriteria.genreFilter || this.searchCriteria.genreFilter == "")
       && (album.artistName == this.searchCriteria.artistFilter || this.searchCriteria.artistFilter == "")
     )
+    // this.genres = new Set(this.displayedAlbums.map(a => a.genre));
+    // this.artists = new Set(this.displayedAlbums.map(a => a.artistName));
   }
 }
