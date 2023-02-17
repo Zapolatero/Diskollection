@@ -4,6 +4,7 @@
         <mat-card-subtitle> {{ artist.country }} </mat-card-subtitle>
         <app-artist-activity [isActive]="artist.isActive"></app-artist-activity>
         <mat-card-actions class="action-buttons">
+            <button (click)="deleteArtist()" color="warn" mat-icon-button><mat-icon>delete</mat-icon></button>
             <a [routerLink]="['edit']" color="accent" class="edit-button" mat-icon-button><mat-icon>edit</mat-icon></a>
         </mat-card-actions>
     </mat-card-header>

@@ -21,7 +21,7 @@ export class ArtistListComponent implements OnInit{
   refreshList(){
     this.artistServices.getArtists().subscribe(data => 
       {
-        this.artists = data.sort((a, b) => (a.name < b.name ? 1 : - 1));
+        this.artists = data.sort((a, b) => (a.name < b.name ? -1 : 1));
       }
     ); 
   }
@@ -33,9 +33,7 @@ export class ArtistListComponent implements OnInit{
       filter(artistForm => !!artistForm),
       switchMap(artistForm => this.artistServices.postArtist(artistForm)),
       switchMap(() => {
-        this.artistServices.getArtists().subscribe(data => {
-          this.artists = data;
-        })
+        this.refreshList();
         return this.artists;
       })
     ).subscribe();
