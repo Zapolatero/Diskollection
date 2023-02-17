@@ -15,4 +15,16 @@ export class ArtistServices{
     getArtistDetails(id:string): Observable<Artist>{
         return this.httpClient.get<Artist>(`${environment.albumEndpoint}/artists/${id}`);
     }
+
+    postArtist(artist: ArtistDTO): Observable<void>{
+        return this.httpClient.post<void>(`${environment.albumEndpoint}/artists/`, artist);
+    }
+
+    putArtist(artist: ArtistDTO): Observable<void>{
+        return this.httpClient.post<void>(`${environment.albumEndpoint}/artists/${artist.id}`, artist);
+    }
+
+    deleteArtist(artistId: string): Observable<void>{
+        return this.httpClient.delete<void>(`${environment.albumEndpoint}/artists/${artistId}`);
+    }
 }

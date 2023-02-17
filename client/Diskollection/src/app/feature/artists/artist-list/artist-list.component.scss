@@ -2,8 +2,11 @@ mat-card{
     margin: 20px;
     padding-top: 0px;
 }
-a{
+.add-artist-btn{
     margin: 10px;
     position: absolute;
     right: 10px;
+}
+a:hover{
+    filter: brightness(0.6);
 }

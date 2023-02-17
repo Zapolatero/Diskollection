@@ -1,12 +1,19 @@
-<form>
+<form [formGroup]="artistForm">
     <mat-form-field>
-        <input matInput>
+        <mat-label>Name</mat-label>
+        <input name="name" formControlName="name" matInput>
     </mat-form-field>
     <mat-form-field>
-        <input matInput>
+        <mat-label>Country</mat-label>
+        <input name="country" formControlName="country" matInput>
     </mat-form-field>
     <mat-form-field>
-        <textarea matInput></textarea>
+        <mat-label>Bio</mat-label>
+        <textarea name="biography" formControlName="biography" matInput></textarea>
     </mat-form-field>
-    <mat-checkbox >Is active</mat-checkbox>
+    <mat-checkbox name="isActive" formControlName="isActive" >Is active</mat-checkbox>
+    <div class="form-user-action">
+        <button mat-flat-button type="button" color="warn" (click)="onCancel()">Cancel</button>
+        <button mat-flat-button color="primary" [disabled]="artistForm.invalid" (click)="onSave()" >Save</button>
+    </div>
 </form>
