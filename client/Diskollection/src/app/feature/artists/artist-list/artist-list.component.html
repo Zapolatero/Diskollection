@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card-content>
+        <mat-list *ngFor="let artist of artists; last as isLast">
+            <mat-list-item>
+                <mat-icon matListItemIcon>folder</mat-icon>
+                <div matListItemTitle>{{ artist.name }}</div>
+                <div matListItemLine>{{ artist.country }} - {{ artist.isActive ? "In activity" : "Inactive" }} </div>
+            </mat-list-item>
+            <mat-divider *ngIf="!isLast"></mat-divider>
+        </mat-list>
+    </mat-card-content>
+</mat-card>
+<a class="add-artist-btn" mat-fab extended >
+    <mat-icon>add</mat-icon>
+    New artist
+</a>
