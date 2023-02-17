@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'albums/:id', loadChildren: () => import('./feature/albums/edit-album/edit-album.module').then(x => x.EditAlbumModule)},
   { path:'artists', loadChildren: () => import('./feature/artists/artist-list/artist-list.module').then(x => x.ArtistListModule) },
   { path: 'artists/:id', loadChildren: () => import('./feature/artists/artist-details/artist-details.module').then(x => x.ArtistDetailsModule)},
+  { path: 'artists/:id/edit', loadChildren: () => import('./feature/artists/edit-artist/edit-artist.module').then(x => x.EditArtistModule)},
 ];
 
 @NgModule({

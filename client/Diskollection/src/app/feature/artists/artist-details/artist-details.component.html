@@ -4,7 +4,7 @@
         <mat-card-subtitle> {{ artist.country }} </mat-card-subtitle>
         <app-artist-activity [isActive]="artist.isActive"></app-artist-activity>
         <mat-card-actions class="action-buttons">
-            <a class="edit-button" mat-icon-button><mat-icon>edit</mat-icon></a>
+            <a [routerLink]="['edit']" color="accent" class="edit-button" mat-icon-button><mat-icon>edit</mat-icon></a>
         </mat-card-actions>
     </mat-card-header>
     <mat-card-content>
@@ -24,8 +24,8 @@
                     {{ album.releaseDate | date }}
                 </mat-panel-description>
                     <span>
-                        <a class="edit-button" mat-icon-button [href]="['albums/' + album.id]" color="primary"><mat-icon>edit</mat-icon></a>
                         <button mat-icon-button color="warn" ><mat-icon>delete</mat-icon></button>
+                        <a class="edit-button" mat-icon-button [href]="['albums/' + album.id]" color="accent"><mat-icon>edit</mat-icon></a>
                     </span>
             </mat-expansion-panel-header>
             <p>{{ album.description ? album.description : "No description"}}</p>

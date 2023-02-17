@@ -21,7 +21,7 @@ export class ArtistServices{
     }
 
     putArtist(artist: ArtistDTO): Observable<void>{
-        return this.httpClient.post<void>(`${environment.albumEndpoint}/artists/${artist.id}`, artist);
+        return this.httpClient.put<void>(`${environment.albumEndpoint}/artists/${artist.id}`, artist);
     }
 
     deleteArtist(artistId: string): Observable<void>{

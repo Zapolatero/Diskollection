@@ -3,10 +3,16 @@ mat-card{
     padding-top: 0px;
 }
 .add-artist-btn{
-    margin: 10px;
     position: absolute;
     right: 10px;
 }
 a:hover{
     filter: brightness(0.6);
 }
+
+.action-btns{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+

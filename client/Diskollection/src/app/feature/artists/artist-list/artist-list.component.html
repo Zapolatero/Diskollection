@@ -2,6 +2,10 @@
     <mat-card-content>
         <mat-list *ngFor="let artist of artists; last as isLast">
             <mat-list-item>
+                <div class="action-btns">
+                    <button mat-icon-button color="warn" (click)="deleteArtist(artist.id)"><mat-icon>delete</mat-icon></button>
+                    <a [href]="['artists/' + artist.id + '/edit']" mat-icon-button color="accent"><mat-icon>edit</mat-icon></a>
+                </div>
                 <mat-icon matListItemIcon>groups</mat-icon>
                 <a matListItemTitle [routerLink]="['/artists/'+ artist.id]">{{ artist.name }}</a>
                 <div matListItemLine>{{ artist.country }} - {{ artist.isActive ? "In activity" : "Inactive" }} </div>

@@ -10,7 +10,7 @@ export interface Artist{
 }
 
 export interface ArtistDTO{
-    id?: string;
+    id: string;
     country: string;
     name: string;
     biography?: string; 

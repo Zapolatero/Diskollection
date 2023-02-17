@@ -44,4 +44,10 @@ export class ArtistListComponent implements OnInit{
   onDeleteAlbum(albumId: string){
     this.artistServices.deleteArtist(albumId).subscribe(() => this.refreshList());
   }
+
+  deleteArtist(id: string){
+    this.artistServices.deleteArtist(id).subscribe(() => {
+      this.refreshList();
+    });
+  }
 }
