@@ -25,7 +25,7 @@ export class AlbumListComponent implements OnInit{
     this.refreshAlbumList();
   }
 
-  refreshAlbumList(){
+  refreshAlbumList(): Array<Album>{
     this.albumServices.getAlbums().subscribe(data => {
         this.albums = data;
         this.displayedAlbums = this.albums;
@@ -33,6 +33,7 @@ export class AlbumListComponent implements OnInit{
         this.artists = new Set(this.albums.map(a => a.artistName));
       }
     );
+    return this.displayedAlbums;
   }
 
   openDialog(){
@@ -42,10 +43,7 @@ export class AlbumListComponent implements OnInit{
       filter(albumForm => !!albumForm),
       switchMap(albumForm => this.albumServices.postAlbum(albumForm)),
       switchMap(() => {
-        this.albumServices.getAlbums().subscribe(data => {
-          this.albums = data;
-        })
-        return this.albums;
+        return this.refreshAlbumList();
       })
     ).subscribe();
   }

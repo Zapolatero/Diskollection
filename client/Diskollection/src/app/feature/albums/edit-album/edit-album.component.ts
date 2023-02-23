@@ -15,7 +15,7 @@ export class EditAlbumComponent implements OnInit {
     private readonly route: ActivatedRoute, 
     private readonly location: Location, 
     private readonly albumServices: AlbumServices
-    ){}
+  ){}
 
   ngOnInit(): void {
     this.album = this.route.snapshot.data["albumDetails"];
@@ -26,7 +26,9 @@ export class EditAlbumComponent implements OnInit {
   }
 
   editAlbum(album: AlbumDTO){
-    this.albumServices.putAlbum(album).subscribe(() => this.goBack());
+    this.albumServices.putAlbum(album).subscribe(result => {
+      this.goBack();
+    });
   }
 
 
