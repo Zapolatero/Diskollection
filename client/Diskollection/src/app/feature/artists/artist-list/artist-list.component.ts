@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { filter, switchMap } from 'rxjs';
+import { EMPTY, filter, map, Observable, shareReplay, switchMap } from 'rxjs';
 import { ArtistServices } from 'src/app/core/providers/ArtistServices';
 import { ArtistDTO } from 'src/app/shared/models/Artist';
 import { AddArtistDialogComponent } from './components/add-artist-dialog/add-artist-dialog.component';
@@ -11,7 +11,7 @@ import { AddArtistDialogComponent } from './components/add-artist-dialog/add-art
   styleUrls: ['./artist-list.component.scss']
 })
 export class ArtistListComponent implements OnInit{
-  artists!: Array<ArtistDTO>
+  artists$: Observable<Array<ArtistDTO>> = EMPTY;
   constructor(private readonly artistServices: ArtistServices, private readonly matDialogService: MatDialog){}
 
   ngOnInit(): void {
@@ -19,11 +19,9 @@ export class ArtistListComponent implements OnInit{
   }
 
   refreshList(){
-    this.artistServices.getArtists().subscribe(data => 
-      {
-        this.artists = data.sort((a, b) => (a.name < b.name ? -1 : 1));
-      }
-    ); 
+    this.artists$ = this.artistServices.getArtists().pipe(
+      map(results => results.sort((a, b) => (a.name < b.name ? -1 : 1)))
+    );
   }
 
   openDialog(){
@@ -34,13 +32,9 @@ export class ArtistListComponent implements OnInit{
       switchMap(artistForm => this.artistServices.postArtist(artistForm)),
       switchMap(() => {
         this.refreshList();
-        return this.artists;
+        return this.artists$;
       })
     ).subscribe();
-  }
-
-  onDeleteAlbum(albumId: string){
-    this.artistServices.deleteArtist(albumId).subscribe(() => this.refreshList());
   }
 
   deleteArtist(id: string){

@@ -1,6 +1,6 @@
 <mat-card>
     <mat-card-content>
-        <mat-list *ngFor="let artist of artists; last as isLast">
+        <mat-list *ngFor="let artist of artists$ |async; last as isLast">
             <mat-list-item>
                 <div class="action-btns">
                     <button mat-icon-button color="warn" (click)="deleteArtist(artist.id)"><mat-icon>delete</mat-icon></button>
